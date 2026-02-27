@@ -2,7 +2,6 @@
 // @version 4.0
 // Use case 4 : Character array based check
 
-
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
         String input = "radar";
