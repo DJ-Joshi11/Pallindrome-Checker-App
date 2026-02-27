@@ -1,23 +1,29 @@
 // @author Devansh Joshi
-// @version 2.0
-// Use case 2 : Hardcoded Pallindrome Validation
+// @version 4.0
+// Use case 4 : Character array based check
 
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String word = "madam";
-        String reversed = "";
+        String input = "radar";
+        char[] arr = input.toCharArray();
+        boolean isPalindrome = true;
+        int i = 0;
+        int j = arr.length - 1;
 
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed += word.charAt(i);
+        while (i < j) {
+            if (arr[i] != arr[j]) {
+                isPalindrome = false;
+                break;
+            }
+            i++;
+            j--;
         }
 
-        System.out.println("Input text: madam")
-
-        if (word.equals(reversed)) {
-            System.out.println("Is it a pallindrome? True");
+        if (isPalindrome) {
+            System.out.println("Palindrome");
         } else {
-            System.out.println("Is it a pallindrome? False");
+            System.out.println("Not Palindrome");
         }
     }
 }
