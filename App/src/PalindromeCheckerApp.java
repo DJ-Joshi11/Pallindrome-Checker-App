@@ -1,23 +1,26 @@
 // @author Devansh Joshi
-// @version 2.0
-// Use case 2 : Hardcoded Pallindrome Validation
+// @version 3.0
+// Use case 3 : String reversal Check
 
+
+import java.util.Scanner;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String word = "madam";
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
         String reversed = "";
 
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed += word.charAt(i);
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed = reversed + str.charAt(i);
         }
 
-        System.out.println("Input text: madam")
-
-        if (word.equals(reversed)) {
-            System.out.println("Is it a pallindrome? True");
+        if (str.equals(reversed)) {
+            System.out.println("Palindrome");
         } else {
-            System.out.println("Is it a pallindrome? False");
+            System.out.println("Not Palindrome");
         }
+
+        sc.close();
     }
 }
