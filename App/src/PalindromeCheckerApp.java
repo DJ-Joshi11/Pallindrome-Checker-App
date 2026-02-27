@@ -1,26 +1,28 @@
 // @author Devansh Joshi
-// @version 3.0
-// Use case 3 : String reversal Check
-
-
-import java.util.Scanner;
+// @version 4.0
+// Use case 4 : Character array based check
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        String reversed = "";
+        String input = "radar";
+        char[] arr = input.toCharArray();
+        boolean isPalindrome = true;
+        int i = 0;
+        int j = arr.length - 1;
 
-        for (int i = str.length() - 1; i >= 0; i--) {
-            reversed = reversed + str.charAt(i);
+        while (i < j) {
+            if (arr[i] != arr[j]) {
+                isPalindrome = false;
+                break;
+            }
+            i++;
+            j--;
         }
 
-        if (str.equals(reversed)) {
+        if (isPalindrome) {
             System.out.println("Palindrome");
         } else {
             System.out.println("Not Palindrome");
         }
-
-        sc.close();
     }
 }
