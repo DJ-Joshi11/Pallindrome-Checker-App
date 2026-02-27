@@ -1,22 +1,25 @@
 // @author Devansh Joshi
-// @version 4.0
-// Use case 4 : Character array based check
+// @version 5.0
+// Use case 5 : Stack Based Palindrome Check
+
+import java.util.Stack;
 
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-        String input = "radar";
-        char[] arr = input.toCharArray();
-        boolean isPalindrome = true;
-        int i = 0;
-        int j = arr.length - 1;
+        String input = "noon";
+        Stack<Character> stack = new Stack<>();
 
-        while (i < j) {
-            if (arr[i] != arr[j]) {
+        for (int i = 0; i < input.length(); i++) {
+            stack.push(input.charAt(i));
+        }
+
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < input.length(); i++) {
+            if (input.charAt(i) != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
-            i++;
-            j--;
         }
 
         if (isPalindrome) {
