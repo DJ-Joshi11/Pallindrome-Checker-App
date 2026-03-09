@@ -1,21 +1,22 @@
 public class PalindromeCheckerApp {
 
-    static boolean checkPalindrome(String str, int start, int end) {
-        if (start >= end) {
-            return true;
-        }
-
-        if (str.charAt(start) != str.charAt(end)) {
-            return false;
-        }
-
-        return checkPalindrome(str, start + 1, end - 1);
-    }
-
     public static void main(String[] args) {
-        String input = "noon";
+        String input = "A man a plan a canal Panama";
 
-        boolean isPalindrome = checkPalindrome(input, 0, input.length() - 1);
+        String normalized = input.replaceAll("\\s+", "").toLowerCase();
+
+        int left = 0;
+        int right = normalized.length() - 1;
+        boolean isPalindrome = true;
+
+        while (left < right) {
+            if (normalized.charAt(left) != normalized.charAt(right)) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
 
         if (isPalindrome) {
             System.out.println("Palindrome");
