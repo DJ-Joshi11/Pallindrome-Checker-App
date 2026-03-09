@@ -1,67 +1,21 @@
-class Node {
-    char data;
-    Node next;
-
-    Node(char data) {
-        this.data = data;
-        this.next = null;
-    }
-}
-
 public class PalindromeCheckerApp {
 
-    static Node reverse(Node head) {
-        Node prev = null;
-        Node current = head;
-
-        while (current != null) {
-            Node next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+    static boolean checkPalindrome(String str, int start, int end) {
+        if (start >= end) {
+            return true;
         }
 
-        return prev;
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        return checkPalindrome(str, start + 1, end - 1);
     }
 
     public static void main(String[] args) {
         String input = "noon";
 
-        Node head = null;
-        Node tail = null;
-
-        for (int i = 0; i < input.length(); i++) {
-            Node newNode = new Node(input.charAt(i));
-            if (head == null) {
-                head = newNode;
-                tail = newNode;
-            } else {
-                tail.next = newNode;
-                tail = newNode;
-            }
-        }
-
-        Node slow = head;
-        Node fast = head;
-
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-
-        Node secondHalf = reverse(slow);
-        Node firstHalf = head;
-
-        boolean isPalindrome = true;
-
-        while (secondHalf != null) {
-            if (firstHalf.data != secondHalf.data) {
-                isPalindrome = false;
-                break;
-            }
-            firstHalf = firstHalf.next;
-            secondHalf = secondHalf.next;
-        }
+        boolean isPalindrome = checkPalindrome(input, 0, input.length() - 1);
 
         if (isPalindrome) {
             System.out.println("Palindrome");
